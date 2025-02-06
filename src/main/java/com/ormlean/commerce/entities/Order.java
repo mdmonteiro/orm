@@ -21,6 +21,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class Order {
 
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
