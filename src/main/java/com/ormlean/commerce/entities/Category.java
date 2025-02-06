@@ -11,11 +11,13 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "tb_category")
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = {"id", "products"})
 public class Category {
 	
 	@Id

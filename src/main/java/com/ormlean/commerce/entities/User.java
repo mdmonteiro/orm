@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = { "name", "email", "phone", "birthDate", "password", "orders" })
 public class User {
 
 	@Id
@@ -27,7 +29,7 @@ public class User {
 	private Long id;
 
 	private String name;
-	
+
 	@Column(unique = true)
 	private String email;
 

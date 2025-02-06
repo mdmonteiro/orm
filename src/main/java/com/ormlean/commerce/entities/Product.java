@@ -17,11 +17,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "tb_product")
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = {"name", "description", "price", "imgUrl", "items", "categories"})
 public class Product {
 
 	@Id

@@ -12,11 +12,13 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "tb_payment")
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = {"moment", "order"})
 public class Payment {
 
 	@Id

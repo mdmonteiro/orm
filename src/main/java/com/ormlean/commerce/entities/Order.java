@@ -18,11 +18,13 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "tb_order")
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = {"moment", "status", "client", "payment", "items"})
 public class Order {
 
 	public Order() {
