@@ -1,5 +1,7 @@
 package com.ormlean.commerce.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -15,12 +17,12 @@ public class OrderItem {
 
 	private Integer quantity;
 
-	private Double price;
+	private BigDecimal price;
 
 	public OrderItem() {
 	}
 
-	public OrderItem(Order order, Product product, Integer quantity, Double price) {
+	public OrderItem(Order order, Product product, Integer quantity, BigDecimal price) {
 		id.setOrder(order);
 		id.setProduct(product);
 		this.quantity = quantity;

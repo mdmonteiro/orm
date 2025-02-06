@@ -1,5 +1,6 @@
 package com.ormlean.commerce.entities;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +33,7 @@ public class Product {
 	@Column(columnDefinition = "TEXT")
 	private String description;
 
-	private Double price;
+	private BigDecimal price;
 
 	private String imgUrl;
 
