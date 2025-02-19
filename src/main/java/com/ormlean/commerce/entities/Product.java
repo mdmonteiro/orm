@@ -49,5 +49,9 @@ public class Product {
 	public List<Order> getOrders() {
 		return items.stream().map(i -> i.getOrder()).toList();
 	}
+	
+	public Product() {
+		// Default
+	}
 
 }
