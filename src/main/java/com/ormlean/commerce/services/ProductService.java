@@ -52,6 +52,11 @@ public class ProductService {
 		
 		return mapper.map(product, ProductDTO.class);
 	}
+	
+	@Transactional
+	public void delete(Long id) {
+		productRepository.deleteById(id);		
+	}
 
 	public Page<ProductDTO> convertToDtoList(Page<Product> products) {
 		return products.map(p -> mapper.map(p, ProductDTO.class));
