@@ -1,7 +1,6 @@
 package com.ormlean.commerce.services;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,10 +19,14 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class ProductService {
 
-	@Autowired
 	private ProductRepository productRepository;
-	@Autowired
+
 	private ModelMapper mapper;
+
+	public ProductService(ProductRepository productRepository, ModelMapper mapper) {
+		this.productRepository = productRepository;
+		this.mapper = mapper;
+	}
 
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
