@@ -35,7 +35,20 @@ public class ProductService {
 		return convertToDtoList(products);
 	}
 
+	@Transactional
+	public ProductDTO insert(ProductDTO dto) {
+		Product product = convertDtoToObject(dto);
+		productRepository.save(product);
+
+		return mapper.map(product, ProductDTO.class);
+	}
+
 	public Page<ProductDTO> convertToDtoList(Page<Product> products) {
 		return products.map(p -> mapper.map(p, ProductDTO.class));
 	}
+
+	public Product convertDtoToObject(ProductDTO dto) {
+		return mapper.map(dto, Product.class);
+	}
+
 }
