@@ -42,6 +42,16 @@ public class ProductService {
 
 		return mapper.map(product, ProductDTO.class);
 	}
+	
+	
+	@Transactional
+	public ProductDTO update(Long id, ProductDTO dto) {
+		Product product = productRepository.getReferenceById(id);		
+		convertDtoToEntity(dto, product);		
+		productRepository.save(product);
+		
+		return mapper.map(product, ProductDTO.class);
+	}
 
 	public Page<ProductDTO> convertToDtoList(Page<Product> products) {
 		return products.map(p -> mapper.map(p, ProductDTO.class));
@@ -49,6 +59,13 @@ public class ProductService {
 
 	public Product convertDtoToObject(ProductDTO dto) {
 		return mapper.map(dto, Product.class);
+	}
+	
+	private void convertDtoToEntity(ProductDTO dto, Product product) {		
+		product.setName(dto.getName());
+		product.setDescription(dto.getDescription());
+		product.setImgUrl(dto.getImgUrl());
+		product.setPrice(dto.getPrice());		
 	}
 
 }
